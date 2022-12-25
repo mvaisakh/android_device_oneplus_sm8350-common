@@ -344,8 +344,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.2.vendor
 
 # PowerShare
-PRODUCT_PACKAGES += \
-    vendor.lineage.powershare@1.0-service.oplus
+$(call inherit-product, hardware/oplus/aidl/powershare/powershare.mk)
 
 # QMI
 PRODUCT_PACKAGES += \
