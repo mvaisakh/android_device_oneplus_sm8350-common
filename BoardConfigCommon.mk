@@ -70,7 +70,7 @@ TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
 
 # Fingerprint
-TARGET_SURFACEFLINGER_UDFPS_LIB := //hardware/oplus:libudfps_extension.oplus
+TARGET_SURFACEFLINGER_UDFPS_LIB := //vendor/hardware/oplus:libudfps_extension.oplus
 
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
@@ -103,7 +103,8 @@ BOARD_KERNEL_CMDLINE := \
     service_locator.enable=1 \
     swiotlb=0 \
     ip6table_raw.raw_before_defrag=1 \
-    iptable_raw.raw_before_defrag=1
+    iptable_raw.raw_before_defrag=1 \
+    androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DTBO := true
@@ -119,7 +120,7 @@ BOARD_BUILD_VENDOR_RAMDISK_IMAGE := true
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
 BOARD_VENDOR_KERNEL_MODULES := $(KERNEL_MODULES)
 BOOT_KERNEL_MODULES := $(BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD)
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(addprefix $(KERNEL_MODULE_DIR)/, $(notdir $(BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD)))
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(KERNEL_MODULE_DIR)/msm_drm.ko
 TARGET_MODULE_ALIASES += wlan.ko:qca_cld3_wlan.ko
 
 # Platform
@@ -171,7 +172,7 @@ VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
 # SEPolicy
 include device/qcom/sepolicy_vndr-legacy-um/SEPolicy.mk
-include hardware/oplus/sepolicy/qti/SEPolicy.mk
+include vendor/hardware/oplus/sepolicy/qti/SEPolicy.mk
 
 # Verified Boot
 BOARD_AVB_ENABLE := true

@@ -52,11 +52,14 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio@2.1-impl \
     android.hardware.soundtrigger@2.3-impl \
     audio.bluetooth.default \
+    audio.primary.default \
     audio.primary.lahaina \
     audio.r_submix.default \
     audio.usb.default \
     audioadsprpcd \
     liba2dpoffload \
+    libaudioroute \
+    libaudioutils \
     libbatterylistener \
     libcomprcapture \
     libexthwplugin \
@@ -197,6 +200,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gnss.measurement_corrections@1.1.vendor \
     android.hardware.gnss.visibility_control@1.0.vendor \
+    android.hardware.health@2.1.vendor \
     android.hardware.gnss@2.1.vendor
 
 PRODUCT_COPY_FILES += \
@@ -216,8 +220,8 @@ PRODUCT_COPY_FILES += \
 
 # Health
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl \
-    android.hardware.health@2.1-service
+    android.hardware.health-service.example \
+    android.hardware.health-service.example_recovery
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -318,7 +322,7 @@ PRODUCT_PACKAGES += \
     libstagefrighthw
 
 # Overlays
-$(call inherit-product, hardware/oplus/overlay/qssi/qssi.mk)
+$(call inherit-product, vendor/hardware/oplus/overlay/qssi/qssi.mk)
 
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay-lineage
@@ -344,7 +348,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.2.vendor
 
 # PowerShare
-$(call inherit-product, hardware/oplus/aidl/powershare/powershare.mk)
+$(call inherit-product, vendor/hardware/oplus/aidl/powershare/powershare.mk)
 
 # QMI
 PRODUCT_PACKAGES += \
@@ -392,7 +396,7 @@ PRODUCT_SHIPPING_API_LEVEL := 30
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    hardware/oplus
+    vendor/hardware/oplus
 
 # Storage
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
