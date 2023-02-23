@@ -1257,6 +1257,13 @@ vendor/lib64/vendor.qti.gnss@3.0.so
 vendor/lib64/vendor.qti.gnss@4.0-service.so
 vendor/lib64/vendor.qti.gnss@4.0.so
 
+# Health
+vendor/bin/hw/android.hardware.health@2.1-service
+vendor/etc/init/android.hardware.health@2.1-service.rc
+vendor/etc/vintf/manifest/android.hardware.health@2.1.xml
+vendor/lib/hw/android.hardware.health@2.0-impl-2.1-qti.so
+vendor/lib64/hw/android.hardware.health@2.0-impl-2.1-qti.so
+
 # Hotword Enrollment
 my_product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml:product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml
 my_product/framework/com.android.hotwordenrollment.common.util.jar:product/framework/com.android.hotwordenrollment.common.util.jar
@@ -1450,6 +1457,8 @@ vendor/lib/liblistensoundmodel2.so
 vendor/lib/libmulawdec.so
 
 # Media
+odm/etc/media_codecs_c2.xml
+odm/etc/media_codecs_c2_oplus_audio.xml
 odm/lib/libaiboost_qnn_sr.so
 odm/lib/libaiboost_sr.so
 odm/lib/libaiboost_ubwc.so
